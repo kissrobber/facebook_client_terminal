@@ -1,0 +1,23 @@
+body{
+  background-color: #111;
+  margin: 0px;
+}
+div.console
+ { word-wrap: break-word; }
+div.console
+ { font-size: 14px }
+div.console div.jquery-console-inner
+ { width:100%; height:100%; background:#111; padding:0.5em; overflow:auto }
+div.console div.jquery-console-prompt-box
+ { color:#ddd; font-family:monospace; }
+div.console div.jquery-console-focus span.jquery-console-cursor
+ { background:#ddd; color:#111; font-weight:bold }
+div.console div.jquery-console-message-error
+ { color:#ef0505; font-family:sans-serif; font-weight:bold; padding:0.1em; }
+div.console div.jquery-console-message-value, div.console .jquery-console-welcome
+ { color:#ddd; font-family:monospace; padding:0.1em; }
+div.console div.jquery-console-message-type
+ { color:#52666f; font-family:monospace; padding:0.1em; }
+div.console span.jquery-console-prompt-label
+ { font-weight:bold }
+#console > div {color:#ddd;}
