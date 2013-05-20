@@ -1,0 +1,34 @@
+<html>
+<head>
+<title>Facebook Client Terminal.js</title>
+<meta name="description" content="You can facebook on your terminal."/>
+<meta name="author" content="https://github.com/kissrobber"/>
+<meta name="Content-Type" content="text/html; charset=UTF-8">
+<script src="js/libs/jquery-1.9.1.min.js"></script>
+<script src="js/libs/jquery.console.js"></script>
+<script src="js/libs/underscore.js"></script>
+<script src="js/web.js"></script>
+<script src="js/webfbconnect.js"></script>
+<script src="js/repl.js"></script>
+<script src="js/stdio.js"></script>
+<script src="js/facebookterminal.js"></script>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id='console'><div>Facebook Client Terminal.</div>
+<div>A command line interface (CLI) for facebook.</div>
+<div>This page is just a DEMO via web browser.</div>
+<div>If you wanna help, simply type 'help'.</div>
+<div>For more details, check here <a href='https://github.com/kissrobber/facebook_client_terminal' target='_blank'>https://github.com/kissrobber/facebook_client_terminal</a></div></div>
+<div id="fb-root"></div>
+<script>
+(function(d){
+var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+if (d.getElementById(id)) {return;}
+js = d.createElement('script'); js.id = id; js.async = true;
+js.src = "//connect.facebook.net/en_US/all.js";
+ref.parentNode.insertBefore(js, ref);
+}(document));
+</script>
+</body>
+</html>

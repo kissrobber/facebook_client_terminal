@@ -1,0 +1,6 @@
+{
+  "fb_app_id": "app id"
+  "fb_app_secret": "app secret",
+  "http_server_host": "127.0.0.1",
+  "http_server_port": "1337"
+}

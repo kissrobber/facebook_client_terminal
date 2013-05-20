@@ -1,0 +1,12 @@
+{ "name": "facebook_client_terminal"
+, "version": "1.0.0"
+, "dependencies":
+  {
+    "express": "*",
+    "async": "*",
+    "eco": "*",
+    "fb": "*",
+    "passport": "*",
+    "passport-facebook": "*"
+  }
+}
