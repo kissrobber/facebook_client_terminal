@@ -52,7 +52,7 @@
   window.fbAsyncInit = function() {
     var controller, csl, div, ft, text;
     FB.init({
-      appId: '202146573265908',
+      appId: '263737387006387',
       channelUrl: '//static.dev/channel.html',
       status: true,
       cookie: true,
