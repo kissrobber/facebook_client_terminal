@@ -660,7 +660,7 @@
       console.log("fql \#{fql}: execute the FQL.");
       console.log("#");
       console.log("# you can use the index in the result list of the previous command instead of the object_id.");
-      console.log("# For more details, check the source code https://github.com/kissrobber/facebook_client_terminal");
+      console.log("# For more details, go to https://github.com/kissrobber/facebook_client_terminal");
       console.log("#");
       return this.cb();
     };
