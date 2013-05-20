@@ -3,7 +3,7 @@ A command line interface (CLI) for facebook.
 
 ----
 ## Demo
-see https://github.com/kissrobber/facebook\_client_terminal
+Go to [the emulator on the web](http://kissrobber.github.io/facebook_client_terminal/).
 
 ----
 ## Usage
