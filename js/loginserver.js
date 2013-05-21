@@ -6,7 +6,7 @@
 
 
 (function() {
-  var FBStrategy, app, config, express, passport;
+  var FBStrategy, app, config, express, fs, passport;
 
   express = require('express');
 
@@ -15,6 +15,8 @@
   FBStrategy = require('passport-facebook').Strategy;
 
   config = require('./config.json');
+
+  fs = require('fs');
 
   console.log('Server for facebook login is booting...');
 
@@ -35,6 +37,11 @@
   }, function(accessToken, refreshToken, user, done) {
     console.log("You've logged in.");
     console.log("accessToken: " + accessToken);
+    fs.writeFile('access_token.txt', accessToken, function(err) {
+      if (err != null) {
+        throw err;
+      }
+    });
     FBConnect.set_access_token(accessToken);
     return done(null, user);
   }));

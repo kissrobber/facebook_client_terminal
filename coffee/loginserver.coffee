@@ -5,6 +5,7 @@ express = require('express')
 passport = require('passport')
 FBStrategy = require('passport-facebook').Strategy
 config = require('./config.json')
+fs = require('fs')
 
 console.log('Server for facebook login is booting...')
 app = express();
@@ -23,6 +24,9 @@ passport.use new FBStrategy {
   (accessToken, refreshToken, user, done)->
     console.log "You've logged in."
     console.log "accessToken: #{accessToken}"
+    fs.writeFile('access_token.txt', accessToken, (err)->
+      throw err if err?
+    )
     FBConnect.set_access_token accessToken
     return done(null, user)
 

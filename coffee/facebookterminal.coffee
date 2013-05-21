@@ -28,6 +28,22 @@ class FacebookTerminal
     finally
       #process.exit()
 
+  @cmd: (cmd)->
+    global._us = require("./libs/underscore.js")
+    global.FB = require("fb")
+    global.FBConnect = new (require("./fbconnect"))
+    apiclient = new Client()
+
+    # set token
+    fs = require('fs')
+    fs.readFile('access_token.txt', 'utf8', (err, data)->
+      throw err if err?
+      # console.log(data)
+      FBConnect.set_access_token(data)
+      # console.log FB.getAccessToken()
+      apiclient.execute(cmd)
+    )
+
   @evaluate: (cmd, context, filename, callback)=>
     cmd = cmd.substr(1, cmd.length - 3)
     if cmd == ''
@@ -126,7 +142,7 @@ class Outputter
 class Client
   constructor: ()->
     @history_ids = []
-    @command_histories = []
+    # @command_histories = []
     @pre_result = null
     @re = new RegExp("#[0-9]+")
 
@@ -134,7 +150,7 @@ class Client
     FBConnect.is_login(cb)
 
   execute: (cmd)->
-    @command_histories.push cmd
+    # @command_histories.push cmd
     if cmd == 'next'
       if @outputter?.has_more()
         @outputter.write()

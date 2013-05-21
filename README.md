@@ -1,20 +1,23 @@
 # Facebook Client Terminal.
 A command line interface (CLI) for facebook.
 
-----
 ## Demo
 Go to [the emulator on the web](http://kissrobber.github.io/facebook_client_terminal/).
 
-----
 ## Usage
 
 ### Setup
 
 Copy js/config.json.example to js/config.json and edit this file.
 
+`npm update`
+
 ### Run
 
-`node js/run.js`
+A Read-Eval-Print-Loop (REPL) mode: `node js/run.js`
+
+Just execute a command: `node js/cmd.js #{a command you like}`  
+For example, to get your name `node js/cmd.js api me fields=name | awk '/- name:/{ { for(i=3;i<NF;i++) printf("%s ",$i) } print($NF) }'`
 
 ### Essential commands
 

@@ -42,6 +42,22 @@
       }
     };
 
+    FacebookTerminal.cmd = function(cmd) {
+      var apiclient, fs;
+      global._us = require("./libs/underscore.js");
+      global.FB = require("fb");
+      global.FBConnect = new (require("./fbconnect"));
+      apiclient = new Client();
+      fs = require('fs');
+      return fs.readFile('access_token.txt', 'utf8', function(err, data) {
+        if (err != null) {
+          throw err;
+        }
+        FBConnect.set_access_token(data);
+        return apiclient.execute(cmd);
+      });
+    };
+
     FacebookTerminal.evaluate = function(cmd, context, filename, callback) {
       var value;
       cmd = cmd.substr(1, cmd.length - 3);
@@ -206,7 +222,6 @@
     function Client() {
       this.cb = __bind(this.cb, this);
       this.history_ids = [];
-      this.command_histories = [];
       this.pre_result = null;
       this.re = new RegExp("#[0-9]+");
     }
@@ -218,7 +233,6 @@
     Client.prototype.execute = function(cmd) {
       var _ref, _ref1,
         _this = this;
-      this.command_histories.push(cmd);
       if (cmd === 'next') {
         if ((_ref = this.outputter) != null ? _ref.has_more() : void 0) {
           this.outputter.write();
