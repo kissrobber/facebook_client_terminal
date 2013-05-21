@@ -38,7 +38,12 @@ Copy js/config.json.example to js/config.json and edit this file.
 
 `fql #{fql}`: execute the FQL.
 
-### Examples
+### Misc
+
+*you can use the index in the result list of the previous command instead of the object_id.*  
+for example: `like #1` instead of `like 123456789`
+
+### Command examples
 
 get the facebook groups you are in: `api me/groups`
 
@@ -61,5 +66,3 @@ get the notifications: `api me/notifications`
 search friends by name: `fql select uid, name from user where uid in (select uid2 from friend where uid1 = me()) and strpos(lower(name), lower('#{a part of name}')) >= 0`
 
 get the comments of the object in reverse chronological order: `fql select fromid, username, text from comment where post_id = '#{object_id}' order by time desc`
-
-*you can use the index in the result list of the previous command instead of the object_id.*
