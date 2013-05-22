@@ -7,8 +7,9 @@ Note: running in REPL mode
 
 ## Practical command example
 Do you want to have a successful career?  
-Add this command to Cron. (automatically like all your boss's status :P)  
-`node js/cmd.js fql "SELECT status_id FROM status WHERE uid = '#{facebook userid of your boss}' AND NOT(status_id IN (SELECT object_id FROM like WHERE user_id = me() AND object_type = 'status'))" | grep status_id: | awk '{ print $5}' | xargs -I 'status' node js/cmd.js like 'status'`  
+Add this command to Cron. (automatically like all your boss's status :P)
+
+    node js/cmd.js fql "SELECT status_id FROM status WHERE uid = '#{facebook userid of your boss}' AND NOT(status_id IN (SELECT object_id FROM like WHERE user_id = me() AND object_type = 'status'))" | grep status_id: | awk '{ print $5}' | xargs -I 'status' node js/cmd.js like 'status'
 Note: this command doesn't work in the above Demo.
 
 ## Usage
@@ -73,6 +74,8 @@ attend the event: `api #{event_id}/attending post`
 
 get the notifications: `api me/notifications`
 
-search friends by name: `fql select uid, name from user where uid in (select uid2 from friend where uid1 = me()) and strpos(lower(name), lower('#{a part of name}')) >= 0`
+search friends by name:
+
+    fql select uid, name from user where uid in (select uid2 from friend where uid1 = me()) and strpos(lower(name), lower('#{a part of name}')) >= 0
 
 get the comments of the object in reverse chronological order: `fql select fromid, username, text from comment where post_id = '#{object_id}' order by time desc`
