@@ -51,7 +51,10 @@
       fs = require('fs');
       return fs.readFile('access_token.txt', 'utf8', function(err, data) {
         if (err != null) {
-          throw err;
+          console.log(err);
+          console.log("Have you got an access_token? If not, run as REPL mode and get an access_token. Type 'node js/run.js'");
+          process.exit();
+          return;
         }
         FBConnect.set_access_token(data);
         return apiclient.execute(cmd);

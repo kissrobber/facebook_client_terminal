@@ -37,10 +37,12 @@ class FacebookTerminal
     # set token
     fs = require('fs')
     fs.readFile('access_token.txt', 'utf8', (err, data)->
-      throw err if err?
-      # console.log(data)
+      if err?
+        console.log err 
+        console.log "Have you got an access_token? If not, run as REPL mode and get an access_token. Type 'node js/run.js'"
+        process.exit()
+        return
       FBConnect.set_access_token(data)
-      # console.log FB.getAccessToken()
       apiclient.execute(cmd)
     )
 
