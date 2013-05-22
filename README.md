@@ -2,13 +2,14 @@
 A command line interface (CLI) for facebook.
 
 ## Demo
-Go to [the emulator on the web](http://kissrobber.github.io/facebook_client_terminal/).
+Go to [the emulator running in web browser](http://kissrobber.github.io/facebook_client_terminal/).  
+Note: running in REPL mode
 
 ## Practical command example
 Do you want to have a successful career?  
-Add this command to Cron.
+Add this command to Cron. (automatically like all your boss's status :P)  
 `node js/cmd.js fql "SELECT status_id FROM status WHERE uid = '#{facebook userid of your boss}' AND NOT(status_id IN (SELECT object_id FROM like WHERE user_id = me() AND object_type = 'status'))" | grep status_id: | awk '{ print $5}' | xargs -I 'status' node js/cmd.js like 'status'`  
-*automatically like all your boss's status :P
+Note: this command doesn't work in the above Demo.
 
 ## Usage
 
