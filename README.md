@@ -1,16 +1,22 @@
 # Facebook Client Terminal.
-A command line interface (CLI) for facebook.
+A command line interface (CLI) for facebook.  
+You can facebook in your terminal.
 
 ## Demo
 Go to [the emulator running in web browser](http://kissrobber.github.io/facebook_client_terminal/).  
 Note: running in REPL mode
 
 ## Practical command example
+Note: these commands doesn't work in the above Demo.
+
 Do you want to have a successful career?  
 Add this command to Cron. (automatically like all your boss's status :P)
 
     node js/cmd.js fql "SELECT status_id FROM status WHERE uid = '#{facebook userid of your boss}' AND NOT(status_id IN (SELECT object_id FROM like WHERE user_id = me() AND object_type = 'status'))" | grep status_id: | awk '{ print $5}' | xargs -I 'status' node js/cmd.js like 'status'
-Note: this command doesn't work in the above Demo.
+
+Another example, when you've got a ton of comments after posting something happy, you can use this following command and like all the comments without reading them!
+
+    node js/cmd.js "fql SELECT id FROM comment WHERE user_likes = 0 AND object_id='#{post_id}'" | grep id: | awk '{print $5}' | xargs -I 'comment' node js/cmd.js like 'comment'
 
 ## Usage
 
@@ -22,7 +28,9 @@ Copy js/config.json.example to js/config.json and edit this file.
 
 ### Run
 
-A Read-Eval-Print-Loop (REPL) mode: `node js/run.js`
+Read-Eval-Print-Loop (REPL) mode: `node js/run.js`  
+Now, you can facebook secretly while pretending to setup MySQL in your terminal. ;)
+
 
 Just execute a command: `node js/cmd.js #{a command you like}`  
 For example, to get your name `node js/cmd.js api me fields=name | awk '/- name:/{ { for(i=3;i<NF;i++) printf("%s ",$i) } print($NF) }'`
