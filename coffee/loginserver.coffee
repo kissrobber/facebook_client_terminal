@@ -61,5 +61,5 @@ app.get '/auth/facebook/callback',
   ,(req, res)->
     res.redirect('/?logined')
 
-app.listen(1337);
-console.log('Server running at http://127.0.0.1:1337/')
+app.listen(config.http_server_port,,config.http_server_host);
+console.log('Server running at http://'+config.http_server_host+':'+config.http_server_port+'/')
